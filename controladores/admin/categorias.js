@@ -26,6 +26,7 @@ async function getModificar(req, res){
     res.render('admin/categorias/lista.ejs',{
         lista: listado,
         data: categoria,
+        mensaje: req.flash('error')
     });
 
 }
