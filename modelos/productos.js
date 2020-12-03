@@ -77,7 +77,7 @@ async function getProductos(){
             {model: Categorias, as:"categorias"},
             {model: Marcas, as: "marcas"}
         ],
-        limit: 2
+        limit: 6
     });
     return datos;
 }
