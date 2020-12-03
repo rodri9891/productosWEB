@@ -1,0 +1,91 @@
+<%- include("./incluir/header.ejs")%>
+
+       
+        <section class="page-section bg-dark" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Lista de Productos</h2>
+                    <h3 class="section-subheading text-muted">Aca se muestran todos los productos disponibles.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <ul class="nav navbar-nav">
+                        <li id="Configure" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Configure</a>
+                            <ul class="dropdown-menu" role="menu">
+                              <li class="dropdown-submenu">
+                                <a href="#">Accounts</a>
+                                <ul class="dropdown-menu">
+                                  <li><a href="#">Option1</a>
+                                  </li>
+                                  <li><a href="#">Option2</a>
+                                  </li>
+                                  <li><a href="#">Option3</a>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                        </li>
+                        </ul>
+                    </div>
+                    
+
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <% if (lista.length > 0) {
+                                lista.forEach((productos) => { %>
+                            
+                        <div class="col-lg-4 col-sm-6 mb-4">
+                                    <div class="portfolio-item">
+                                        <a class="portfolio-link" href="/producto/<%=productos.id %>">
+                                            <div class="portfolio-hover">
+                                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img class="img-fluid" src="/assets/img/upload/asd.jpg" alt="" />
+                                        </a>
+                                        <div class="portfolio-caption">
+                                            <div class="portfolio-caption-heading">
+                                                <%=productos.titulo %>
+                                            </div>
+                                            <div class="portfolio-caption-subheading text-muted"><%=productos.usuarios.nombre %></div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <small class="text-muted">&#9734; &#9734; &#9734; &#9733; &#9734;</small>
+                                        </div>
+                                    </div>
+                        </div>
+                                <% });
+                            }  else{ %>
+                                <h3 class="post-subtitle">
+                                    No se encontraron productos en el sitio
+                                </h3>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+
+        <!-- Clients-->
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/envato.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/designmodo.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/themeforest.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/creative-market.jpg" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<%- include("./incluir/footer.ejs")%>
+        
+

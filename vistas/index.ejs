@@ -1,0 +1,92 @@
+<%- include("./incluir/header.ejs")%>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Bienvenido a nuestro sitio WEB!</div>
+                <div class="masthead-heading text-uppercase">Mira nuestro catalogo..</div>
+            </div>
+        </header>
+
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-dark" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Productos</h2>
+                    <h3 class="section-subheading text-muted">Aca se muestran solo 6 productos aleatorios.</h3>
+                </div>
+                <div class="row">
+             
+
+<!--                    
+                        
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+                        <div class="list-group">
+                          <a href="#" class="list-group-item">Category 1</a>
+                          <a href="#" class="list-group-item">Category 2</a>
+                          <a href="#" class="list-group-item">Category 3</a>
+                        </div>
+                        -->
+                   
+
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <% if (lista.length > 0) {
+                                lista.forEach((productos) => { %>
+                            
+                        <div class="col-lg-4 col-sm-6 mb-4">
+                                    <div class="portfolio-item">
+                                        <a class="portfolio-link" href="/producto/<%=productos.id %>">
+                                            <div class="portfolio-hover">
+                                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img class="img-fluid" src="/assets/img/upload/<%=productos.imagen%>" alt="" />
+                                        </a>
+                                        <div class="portfolio-caption">
+                                            <div class="portfolio-caption-heading">
+                                                <%=productos.titulo %>
+                                            </div>
+                                            <div class="portfolio-caption-subheading text-muted"><%=productos.usuarios.nombre %></div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <small class="text-muted">&#9734; &#9734; &#9734; &#9733; &#9734;</small>
+                                        </div>
+                                    </div>
+                        </div>
+                                <% });
+                            }  else{ %>
+                                <h3 class="post-subtitle">
+                                    No se encontraron productos en el sitio
+                                </h3>
+                            <% } %>
+                        </div>
+                    </div>
+
+                    
+                  
+                </div>
+            </div>
+        </section>
+    
+
+        <!-- Clients-->
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/envato.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/designmodo.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/themeforest.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/creative-market.jpg" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<%- include("./incluir/footer.ejs")%>
+        
+

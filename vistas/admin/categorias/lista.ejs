@@ -1,0 +1,89 @@
+<%- include("./../incluir/header.ejs") %>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Sección Categorias</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                <li class="breadcrumb-item active">Categorías</li>
+            </ol>
+            <% if (mensaje.length > 0) {
+                mensaje.forEach((msg)=>{ %>
+                    <%=msg%>
+                    <%});    
+            } %>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    Agregar nueva Categorías
+                </div>
+                <div class="card-body">
+                    <form action="" method="POST" >
+                        <div class="form-group">
+                            <label class="small mb-1" >Nombre:</label>
+                            <input class="form-control py-4" name="nombre" type="text" placeholder="Nueva categoría" 
+                            value="<%=data.nombre%>"/>
+                        </div>
+                        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                             <input type="submit"  value ="Agregar" class="btn btn-primary" >
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    Listado de Categorías
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Acciones</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Acciones</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <% if (lista.length > 0){
+                                    lista.forEach((categoria) => { %> 
+                                        <tr>
+                                            <td><%=categoria.id%></td>
+                                            <td><%=categoria.nombre%></td>
+                                            <td><a href="/admin/categorias/<%=categoria.id_padre%>/modif/<%=categoria.id%>" >MODIF</a>  -  
+                                                <a href="/admin/categorias/<%=categoria.id_padre%>/elim/<%=categoria.id%>" onclick="return confirm('Esta seguro de borrar.')">Elim</a>  -  
+                                                <a href="/admin/categorias/<%=categoria.id%>">SubCat</a></td> 
+                                            <td>
+                                                
+                                                <form action="" method="POST" >
+                                                    <div class="form-group">
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" value="option1">
+                                                            <label class="form-check-label">Activar/Inactivar</label>
+                                                    
+                                                         <input type="submit" value ="activar" class="btn btn-primary" >
+                                                         <input type="submit" value ="desactivar" class="btn btn-danger" >
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <%});
+                                    }%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include("./../incluir/footer.ejs") %>

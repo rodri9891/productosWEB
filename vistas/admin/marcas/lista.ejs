@@ -1,0 +1,62 @@
+<%- include("./../incluir/header.ejs") %>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Sección Marcas</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                <li class="breadcrumb-item active">Marcas</li>
+            </ol>
+            <% if (mensaje.length > 0) {
+                mensaje.forEach((msg)=>{ %>
+                    <%=msg%>
+                    <%});    
+            } %>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    Listado de Marcas - <a class="btn btn-success" href="/admin/marcas/add">Nueva Marca</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Estado</th>
+                                    <th>Modelos</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Estado</th>
+                                    <th>Modelos</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <% if (lista.length > 0){
+                                    lista.forEach((marca) => { %> 
+                                        <tr>
+                                            <td><%=marca.id%></td>
+                                            <td><%=marca.nombre%></td>
+                                            <td><%=marca.estado%></td>
+                                            <td><%=marca.modelos.nombre%></td>
+                                            <td><a class="btn btn-primary" href="/admin/marcas/modif/<%=marca.id%>" >Modificar</a>  -  
+                                                <a class="btn btn-danger" href="/admin/marcas/elim/<%=marca.id%>" onclick="return confirm('Esta seguro de borrar.')">Eliminar</a>
+                                            </td>
+                                        </tr>
+                                    <%});
+                                    }%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include("./../incluir/footer.ejs") %>

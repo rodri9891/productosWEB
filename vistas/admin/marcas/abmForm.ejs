@@ -1,0 +1,59 @@
+<%- include("./../incluir/header.ejs") %>
+    <div id="layoutSidenav_content"> 
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4">Dashboard</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table mr-1"></i>
+                        Nueva Marca 
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="POST" >
+                            <div class="form-group">
+                                <label class="small mb-1" >Nombre de la marca:</label>
+                                <input class="form-control py-4" name="marca" type="text" placeholder="Nueva marca" 
+                                value="<%=data.nombre%>"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" >Modelos: </label>
+                                <select name="modelo">
+                                    <% if (modelos.length > 0){
+                                        modelos.forEach((modelo) => { 
+                                            if(data.modelos && modelo.id == data.modelos.id){%>
+                                                <option selected="selected" value="<%=modelo.id%>"><%=modelo.nombre%></option>
+                                            <% }else{ %>
+                                                <option value="<%=modelo.id%>"><%=modelo.nombre%></option>
+                                            <% }
+                                        });
+                                    }%>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" >Estado: </label>
+                                <select name="estado">
+                                    <% if (modelos.length > 0){
+                                        modelos.forEach((modelo) => { 
+                                            if(data.modelos && modelo.id == data.modelos.id){%>
+                                                <option selected="selected" value="<%=data.estado%>"><%=data.estado%></option>
+                                            <% }else{ %>
+                                                <option value="1">habilitado</option>
+                                                <option value="0">deshabilitado</option>
+                                            <% }
+                                        });
+                                    }%>
+                                </select>
+                            </div>
+                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                 <input type="submit"  value ="Agregar" class="btn btn-primary" >
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+        </main>
+<%- include("./../incluir/footer.ejs") %>
